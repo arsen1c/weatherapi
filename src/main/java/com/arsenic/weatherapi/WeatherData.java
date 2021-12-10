@@ -1,30 +1,27 @@
 package com.arsenic.weatherapi;
 
-public class WeatherData {
-    private String weather;
-    private String temperature;
-    private String wind;
-    private String humidity;
-    private String visibility;
-    private String uvIndex;
-    private String airQuality;
-    private String lastUpdate;
-    private String city;
+import com.arsenic.weatherapi.helpers.MoreInfo;
 
-    public WeatherData(String weather, String temperature, String wind, String humidity, String visibility, String uvIndex, String airQuality, String lastUpdate) {
+
+public class WeatherData {
+    private final String weather;
+    private final String temperature;
+    private final String airQuality;
+    private final String lastUpdate;
+    private final String city;
+    private final MoreInfo details;
+
+    public WeatherData(String city, String temperature, String aqi, String weather, String lastUpdate, MoreInfo details) {
+        this.city = city;
+        this.airQuality = aqi;
         this.weather = weather;
         this.temperature = temperature;
-        this.wind = wind;
-        this.humidity = humidity;
-        this.visibility = visibility;
-        this.uvIndex = uvIndex;
-        this.airQuality = airQuality;
+        this.details = details;
         this.lastUpdate = lastUpdate;
     }
 
-    public WeatherData(String city, String aqi) {
-        this.city = city;
-        this.airQuality = aqi;
+    public MoreInfo getDetails() {
+        return details;
     }
 
     public String getCity() {
@@ -37,22 +34,6 @@ public class WeatherData {
 
     public String getTemperature() {
         return temperature;
-    }
-
-    public String getWind() {
-        return wind;
-    }
-
-    public String getHumidity() {
-        return humidity;
-    }
-
-    public String getVisibility() {
-        return visibility;
-    }
-
-    public String getUvIndex() {
-        return uvIndex;
     }
 
     public String getAirQuality() {
